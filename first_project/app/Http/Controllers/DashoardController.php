@@ -8,7 +8,7 @@ use App\Models\User;
 class DashoardController extends Controller
 {
     public function index(){
-
-        return view('dashboard.index');
+        $totalUsers  = User::count();
+        return view('dashboard.index' ,compact('totalUsers'));
     }
 }
