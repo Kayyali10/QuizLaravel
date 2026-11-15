@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('_lectures', function (Blueprint $table) {
+        Schema::create('lectures', function (Blueprint $table) {
            $table->id();
             $table->foreignId('course_id')
                    ->unique()
@@ -19,8 +19,8 @@ return new class extends Migration
                    ->cascadeOnDelete();
             $table->string('title')->nullable();
             $table->string('topic_summary');
-            $table->string('hall_name')->nullable();
-            $table->string('scheduled_at')->nullable();
+            $table->string('hall_name');
+            $table->string('scheduled_at');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('_lectures');
+        Schema::dropIfExists('lectures');
     }
 };
